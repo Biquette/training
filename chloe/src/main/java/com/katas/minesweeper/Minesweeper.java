@@ -10,7 +10,7 @@ public class Minesweeper {
         StringBuilder result = new StringBuilder();
 
         for (int x = 0; x < board.getXSize(); x++) {
-            for (int y = 0; y < board.getXSize(); y++) {
+            for (int y = 0; y < board.getYSize(); y++) {
                 if (board.isAMine(x, y)) {
                     result.append(MineState.MINE.getSymbol());
                 } else {

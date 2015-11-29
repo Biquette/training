@@ -11,7 +11,7 @@ package com.katas.rpn.ast;
  */
 public class Literal implements Node {
 
-    private int literal;
+    private final int literal;
 
 
     public Literal(int literal) {
@@ -24,16 +24,19 @@ public class Literal implements Node {
     }
 
 
+    @Override
     public String render() {
         return Integer.toString(literal);
     }
 
 
+    @Override
     public int eval() {
         return literal;
     }
 
 
+    @Override
     public void accept(NodeVisitor visitor) {
         visitor.visitLiteral(this);
     }

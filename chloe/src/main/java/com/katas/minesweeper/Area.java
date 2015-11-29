@@ -1,14 +1,14 @@
 package com.katas.minesweeper;
 
-import java.util.Arrays;
-
 /**
  * @author Chloé Mahalin
  */
 public class Area {
 
     private MineState[][] board;
+
     private int xSize;
+
     private int ySize;
 
     private Area(int x, int y) {
@@ -36,7 +36,6 @@ public class Area {
         return false;
     }
 
-
     public static Area generate(String... rows) {
         Area constructedBoard = new Area(0, 0);
         if (rows.length > 0 && !rows[0].isEmpty()) {
@@ -51,3 +50,4 @@ public class Area {
         return constructedBoard;
     }
 }
+

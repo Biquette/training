@@ -2,7 +2,7 @@ package com.katas.rpn.ast;
 
 import java.util.Stack;
 
-import static com.mycompany.rpn.rpnwork.ast.NodeFactory.*;
+
 
 
 /**
@@ -13,20 +13,23 @@ public class RPNParser {
 
     private enum Operator {
         PLUS("+") {
+            @Override
             public void process(Stack<Node> stack) {
                 Node right = stack.pop();
                 Node left = stack.pop();
-                stack.push(add(left, right));
+//                stack.push(RPNParser.add(left, right));
             }
         }, MINUS("-") {
+            @Override
             public void process(Stack<Node> stack) {
                 Node right = stack.pop();
                 Node left = stack.pop();
-                stack.push(sub(left, right));
+//                stack.push(sub(left, right));
             }
         }, SQRT("sqrt") {
+            @Override
             public void process(Stack<Node> stack) {
-                stack.push(sqrt(stack.pop()));
+//                stack.push(UnaryOperator.sqrt(stack.pop()));
             }
         };
 
@@ -56,7 +59,7 @@ public class RPNParser {
             if (operator != null) {
                 operator.process(stack);
             } else {
-                stack.push(literal(Integer.parseInt(token)));
+                stack.push(NodeFactory.literal(Integer.parseInt(token)));
             }
         }
         return stack.pop();

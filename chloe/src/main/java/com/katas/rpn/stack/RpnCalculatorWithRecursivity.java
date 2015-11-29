@@ -1,6 +1,6 @@
 package com.katas.rpn.stack;
 
-import com.mycompany.kata4.rpnwork.operators.Operator;
+import com.katas.rpn.stack.operators.Operator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

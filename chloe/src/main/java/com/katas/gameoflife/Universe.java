@@ -1,14 +1,17 @@
 package com.katas.gameoflife;
 
-import java.util.Arrays;
-
 /**
  * Created by Chloé Mahalin
  */
 public class Universe {
 
+    // Variable final pour des variables jamais réinitialisées après le constructeur :
     private CellState[][] universe;
+
+    // Variable final pour des variables jamais réinitialisées après le constructeur :
     private int xSize;
+
+    // Variable final pour des variables jamais réinitialisées après le constructeur :
     private int ySize;
 
     private Universe(int xSize, int ySize) {
@@ -29,23 +32,32 @@ public class Universe {
         this.universe[xCoordinate][yCoordinate] = newState;
     }
 
+    private boolean isBetween(int value, int min, int max) {
+        return min <= value && value < max;
+    }
+
     public CellState getCellState(int xCoordinate, int yCoordinate) {
+        if (this.isBetween(xCoordinate, 0, this.xSize) && this.isBetween(yCoordinate, 0, this.ySize)) {
+            return this.universe[xCoordinate][yCoordinate];
+        }
+
         if (xCoordinate >= 0 && yCoordinate >= 0 && xCoordinate < this.getXSize() && yCoordinate < this.getYSize()) {
             return this.universe[xCoordinate][yCoordinate];
         }
         return CellState.DEAD;
     }
 
-
     @Override
     public String toString() {
+        // @Bichon : Si tu connais (à peu près) la taille finale de ta String, alors indique la dans le constructeur du StringBuilder :
         StringBuilder toReturn = new StringBuilder();
 
         for (int x = 0; x < this.xSize; x++) {
             for (int y = 0; y < this.ySize; y++) {
                 toReturn.append(this.universe[x][y].getSymbol());
             }
-            if(x < this.getXSize() -1) {
+            if (x < this.getXSize() - 1) {
+                // Les String sont très coûteuses à instancier, il vaut mieux ajouter un char qu'un String :
                 toReturn.append("\n");
             }
         }
@@ -68,6 +80,6 @@ public class Universe {
     }
 
     public static Universe createUniverse(int xSize, int ySize) {
-        return new Universe(xSize,ySize);
+        return new Universe(xSize, ySize);
     }
 }

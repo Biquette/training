@@ -1,12 +1,9 @@
 package com.katas.rpn.stack.operators;
 
-import com.mycompany.kata4.rpnwork.RpnCalculatorWithRecursivity;
-
+import static com.katas.rpn.stack.RpnCalculatorWithRecursivity.calculate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static com.mycompany.kata4.rpnwork.RpnCalculatorWithRecursivity.*;
 
 /**
  *
@@ -15,6 +12,7 @@ import static com.mycompany.kata4.rpnwork.RpnCalculatorWithRecursivity.*;
 public enum Operator implements IOperator {
 
     DIVIDED("/") {
+            @Override
             public int compute(List<String> numbers) {
                 int b = calculate(numbers);
                 int a = calculate(numbers);
@@ -22,6 +20,7 @@ public enum Operator implements IOperator {
             }
         },
     MINUS("-") {
+            @Override
             public int compute(List<String> numbers) {
                 int b = calculate(numbers);
                 int a = calculate(numbers);
@@ -29,6 +28,7 @@ public enum Operator implements IOperator {
             }
         },
     MULTIPLIED("*") {
+            @Override
             public int compute(List<String> numbers) {
                 int b = calculate(numbers);
                 int a = calculate(numbers);
@@ -36,6 +36,7 @@ public enum Operator implements IOperator {
             }
         },
     PLUS("+") {
+            @Override
             public int compute(List<String> numbers) {
                 int b = calculate(numbers);
                 int a = calculate(numbers);
@@ -43,11 +44,13 @@ public enum Operator implements IOperator {
             }
         },
     SQRT("sqrt") {
+            @Override
             public int compute(List<String> numbers) {
                 return (int) Math.sqrt(calculate(numbers));
             }
         },
     MAX("max") {
+            @Override
             public int compute(List<String> numbers) {
                 List<Integer> values = new ArrayList<Integer>();
                 while (!numbers.isEmpty()) {
@@ -57,11 +60,13 @@ public enum Operator implements IOperator {
             }
         },
     MIN("min") {
+            @Override
             public int compute(List<String> numbers) {
                 return 0;
             }
         },
     SQUARED("squared") {
+            @Override
             public int compute(List<String> numbers) {
                 return (int) Math.pow(calculate(numbers), 2);
             }
