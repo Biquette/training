@@ -9,8 +9,7 @@ public class AreaFactory {
         if ("square".equals(type)) {
             SquareArea area = new SquareArea(rows);
             return area;
-        }
-        else if ("array".equals(type)) {
+        } else if ("array".equals(type)) {
             ArrayArea area = new ArrayArea(rows);
             return area;
         }

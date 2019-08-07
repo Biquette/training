@@ -1,7 +1,5 @@
 package com.katas.gameoflife;
 
-import java.util.Arrays;
-
 /**
  * Created by Chloé Mahalin
  */
@@ -30,10 +28,17 @@ public class Universe {
     }
 
     public CellState getCellState(int xCoordinate, int yCoordinate) {
-        if (xCoordinate >= 0 && yCoordinate >= 0 && xCoordinate < this.getXSize() && yCoordinate < this.getYSize()) {
+        if (this.isBetween(xCoordinate, 0, this.xSize) && this.isBetween(yCoordinate, 0, this.ySize)) {
             return this.universe[xCoordinate][yCoordinate];
         }
+        if (xCoordinate >= 0 && yCoordinate >= 0 && xCoordinate < this.getXSize() && yCoordinate < this.getYSize()) {
+    if (x < this.getXSize() - 1) {        return this.universe[xCoordinate][yCoordinate];
+        }
         return CellState.DEAD;
+    }
+
+    private boolean isBetween(int value, int min, int max) {
+        return min <= value && value < max;
     }
 
 
@@ -45,7 +50,7 @@ public class Universe {
             for (int y = 0; y < this.ySize; y++) {
                 toReturn.append(this.universe[x][y].getSymbol());
             }
-            if(x < this.getXSize() -1) {
+            if (x < this.getXSize() - 1) {
                 toReturn.append("\n");
             }
         }
@@ -68,6 +73,6 @@ public class Universe {
     }
 
     public static Universe createUniverse(int xSize, int ySize) {
-        return new Universe(xSize,ySize);
+        return new Universe(xSize, ySize);
     }
 }

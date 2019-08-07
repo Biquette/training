@@ -6,7 +6,7 @@ package com.katas.gameoflife;
 public enum CellState {
     ALIVE('*'), DEAD('.');
 
-    private char symbol;
+    private final char symbol;
 
     private CellState(char symbol) {
         this.symbol = symbol;
@@ -17,10 +17,6 @@ public enum CellState {
     }
 
     public static CellState getStateFromSymbol(char symbol) {
-        if (symbol == '*') {
-            return ALIVE;
-        } else {
-            return DEAD;
-        }
+        return symbol == '*' ? ALIVE : DEAD;
     }
 }

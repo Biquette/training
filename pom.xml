@@ -21,6 +21,7 @@
         <module>rpn</module>
         <module>rental-movie</module>
         <module>tictactoetomek</module>
+        <module>funky-lambda</module>
     </modules>
 
     <dependencyManagement>

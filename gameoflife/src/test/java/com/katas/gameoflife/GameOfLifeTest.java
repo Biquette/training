@@ -42,7 +42,7 @@ public class GameOfLifeTest {
 
     public void checkCountNeighbours(int numberOfNeighboursExpected, int xCoordinate, int yCoordinate, Universe universe) {
         GameOfLife lifeGame = new GameOfLife();
-        Assert.assertEquals(numberOfNeighboursExpected, lifeGame.countNeighbours(xCoordinate,yCoordinate,universe));
+        Assert.assertEquals(numberOfNeighboursExpected, lifeGame.countLivingNeighbours(xCoordinate,yCoordinate,universe));
     }
 
    @Test

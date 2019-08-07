@@ -2,9 +2,9 @@ package com.katas.minesweeper;
 
 /**
  * @author : Chloé Mahalin.
- *         <p/>
- *         L'avantage de l'array par rapport à la matrice consiste dans le nombre de pointeurs nécessaires.
- *         Un array prend moins de mémoire d'une matrice
+ * <p/>
+ * L'avantage de l'array par rapport à la matrice consiste dans le nombre de pointeurs nécessaires.
+ * Un array prend moins de mémoire d'une matrice
  */
 public class ArrayArea implements IArea {
 
